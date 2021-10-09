@@ -40,37 +40,37 @@ export default {
   // TODO(rushui 2021-05-03): Promise.all
   created() {
     getBanner()
-      .then((value) => {
+      .then(value => {
         this.banner = value
       })
-      .catch((err) => {
+      .catch(err => {
         process.env.NODE_ENV !== 'production' &&
           console.log('getBanner err: ', err)
       })
 
     getRecommend(15)
-      .then((value) => {
+      .then(value => {
         this.recommend = value
       })
-      .catch((err) => {
+      .catch(err => {
         process.env.NODE_ENV !== 'production' &&
           console.log('getBanner err: ', err)
       })
 
     getNewestSongs()
-      .then((value) => {
+      .then(value => {
         this.newestSongList = value
       })
-      .catch((err) => {
+      .catch(err => {
         process.env.NODE_ENV !== 'production' &&
           console.log('getBanner err: ', err)
       })
 
     getLatestMv()
-      .then((value) => {
+      .then(value => {
         this.latestMvList = value
       })
-      .catch((err) => {
+      .catch(err => {
         process.env.NODE_ENV !== 'production' &&
           console.log('getBanner err: ', err)
       })

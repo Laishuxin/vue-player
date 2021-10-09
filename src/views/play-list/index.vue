@@ -25,11 +25,11 @@ export default {
   name: 'play-list',
   created() {
     getCategories()
-      .then((value) => {
+      .then(value => {
         this.categories = value
         this.currentCategory = this.categories[0]
       })
-      .catch((err) => {
+      .catch(err => {
         if (process.env.NODE_ENV !== 'production') {
           console.log('play-list getCategories: ', err)
         }
@@ -55,7 +55,7 @@ export default {
   watch: {
     // eslint-disable-next-line
     currentCategory(newVal, _) {
-      getHighQualityPlayList(newVal, 1).then((value) => {
+      getHighQualityPlayList(newVal, 1).then(value => {
         this.topCardItem = value && value[0]
       })
       this.$store.dispatch(SET_PLAY_LIST)

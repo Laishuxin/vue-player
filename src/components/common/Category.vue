@@ -52,7 +52,7 @@ export default {
       this.$emit(
         'changeCategory',
         this.categories[newVal],
-        this.categories[oldVal]
+        this.categories[oldVal],
       )
     },
   },

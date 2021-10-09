@@ -28,9 +28,9 @@ const TYPES = {
  * }]
  */
 export function getMusicByKeyword(keywords, offset = 0, limit = 30) {
-  return getData(keywords, TYPES.MUSIC, offset, limit).then((result) => {
+  return getData(keywords, TYPES.MUSIC, offset, limit).then(result => {
     result = result.result || { songs: [] }
-    const data = result.songs.map((item) => {
+    const data = result.songs.map(item => {
       return {
         id: item.id,
         name: item.name,
@@ -70,9 +70,9 @@ export function getMusicByKeyword(keywords, offset = 0, limit = 30) {
  *
  */
 export function getAlbumByKeyword(keywords, offset = 0, limit = 30) {
-  return getData(keywords, TYPES.ALBUM, offset, limit).then((result) => {
+  return getData(keywords, TYPES.ALBUM, offset, limit).then(result => {
     result = result.result || { playlists: [] }
-    const data = result.playlists.map((item) => {
+    const data = result.playlists.map(item => {
       return {
         id: item.id,
         name: item.name,
@@ -108,9 +108,9 @@ export function getAlbumByKeyword(keywords, offset = 0, limit = 30) {
  * }
  */
 export function getMvByKeyword(keywords, offset = 0, limit = 30) {
-  return getData(keywords, TYPES.MV, offset, limit).then((result) => {
+  return getData(keywords, TYPES.MV, offset, limit).then(result => {
     result = result.result || { mvs: [] }
-    const data = result.mvs.map((item) => {
+    const data = result.mvs.map(item => {
       return {
         id: item.id,
         name: item.name,
@@ -132,7 +132,7 @@ function _mergeName(arr) {
   if (!arr || arr.length < 0) {
     return ''
   }
-  const names = arr.map((item) => item.name)
+  const names = arr.map(item => item.name)
   return names.join(',')
 }
 

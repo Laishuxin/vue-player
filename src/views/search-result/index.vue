@@ -79,12 +79,12 @@ export default {
       const strategory =
         strategies[this.currentCategory.id] || defaultStrategory
       strategory(this.searchValue, this.page * this.limit, this.limit).then(
-        (result) => {
+        result => {
           this.list = result.data
           if (!isUndef(result.total)) {
             this.total = result.total
           }
-        }
+        },
       )
     },
   },

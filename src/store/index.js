@@ -76,13 +76,13 @@ const actions = {
    */
   [SET_MUSIC]({ commit }, payload) {
     getMusicById(payload)
-      .then((value) => {
+      .then(value => {
         // console.log('vuex SET_MUSIC: ')
         // console.log(value)
         const url = value && value.url
         commit(SET_MUSIC_URL, url || '')
       })
-      .catch((err) => {
+      .catch(err => {
         process.env.NODE_ENV !== 'production' &&
           console.log(('getMusicById err', err))
       })
@@ -93,14 +93,14 @@ const actions = {
     let { playlists, total } = await getPlayList(
       playList.category,
       playList.offset,
-      playList.limit
+      playList.limit,
     )
 
     if (total !== playList.total) {
       commit(SET_PLAY_LIST_TOTAL, total)
     }
 
-    playlists = playlists.map((item) => {
+    playlists = playlists.map(item => {
       return {
         imgUrl: item.coverImgUrl,
         title: item.name,

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const setRequestUrl = (axios) => {
+const setRequestUrl = axios => {
   let baseUrl
   const env = process.env.NODE_ENV
   switch (env) {
@@ -18,18 +18,18 @@ const setRequestUrl = (axios) => {
   axios.defaults.baseURL = baseUrl
 }
 
-const setRequestInterceptor = (axios) => {
+const setRequestInterceptor = axios => {
   axios.interceptors.request.use(
-    (config) => {
+    config => {
       let token = localStorage.getItem('token')
       token && (config.headers['Authorization'] = 'Bearer ' + token)
       return config
     },
-    (err) => Promise.reject(err)
+    err => Promise.reject(err),
   )
 }
 
-const handleResponseErrorByStatus = (response) => {
+const handleResponseErrorByStatus = response => {
   // set status, if status from response not exists, set it to 500
   const status = response.status || 500
   const message = (response.data && response.data.message) || 'Server error'
@@ -58,7 +58,7 @@ const handleResponseErrorByStatus = (response) => {
   }
 }
 
-const handleResponseError = (err) => {
+const handleResponseError = err => {
   // 具体的响应字段需要根据api的设置，如果存在响应，
   // 只是说明发送请求成功，但是可能是参数或者其他原因
   // 导致服务器不能正确返回结果
@@ -81,14 +81,14 @@ const handleResponseError = (err) => {
   })
 }
 
-const setResponseInterceptor = (axios) => {
+const setResponseInterceptor = axios => {
   axios.interceptors.response.use(
-    (response) => response.data,
-    (err) => handleResponseError(err)
+    response => response.data,
+    err => handleResponseError(err),
   )
 }
 
-const setInterceptor = (axios) => {
+const setInterceptor = axios => {
   setRequestInterceptor(axios)
   setResponseInterceptor(axios)
 }
@@ -98,16 +98,16 @@ const setRequestDataType = (axios, type) => {
   switch (type) {
     case 'urlencoded':
       contentType = 'application/x-www-form-urlencoded'
-      axios.defaults.transformRequest = (data) => qs.stringify(data)
+      axios.defaults.transformRequest = data => qs.stringify(data)
       break
     default:
       contentType = 'application/json;charset=utf-8'
-      axios.defaults.transformRequest = (data) => JSON.stringify(data)
+      axios.defaults.transformRequest = data => JSON.stringify(data)
   }
   axios.defaults.headers['Content-Type'] = contentType
 }
 
-const setOthers = (axios) => {
+const setOthers = axios => {
   axios.defaults.timeout = 10000
   // axios.defaults.withCredentials = true
 }

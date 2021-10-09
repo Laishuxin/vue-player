@@ -11,8 +11,8 @@ export function getTopSongs(type, limit = 30) {
         limit,
       },
     })
-    .then((value) => {
-      const songs = value.data.map((item) => {
+    .then(value => {
+      const songs = value.data.map(item => {
         return {
           picUrl: item.album.blurPicUrl,
           mp3Url: item.mp3Url,
@@ -20,7 +20,7 @@ export function getTopSongs(type, limit = 30) {
           musicName: item.name,
           artistsName: item.artists.reduce(
             (prev, curr) => prev + curr.name,
-            ''
+            '',
           ),
           albumName: item.album.name,
           privilege: item.privilege.cp,

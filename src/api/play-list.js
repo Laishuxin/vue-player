@@ -1,8 +1,8 @@
 import http from '@/api/http'
 
 export function getCategories() {
-  return http.get('/playlist/hot').then((value) => {
-    const list = value.tags.map((item) => item.name)
+  return http.get('/playlist/hot').then(value => {
+    const list = value.tags.map(item => item.name)
     list.unshift('全部')
     return list
   })
@@ -15,8 +15,8 @@ export function getHighQualityPlayList(category, limit) {
   limit = limit && limit > 0 ? limit : 0
   return http
     .get(`/top/playlist/highquality?limit=${limit}&cat=${category}`)
-    .then((value) => {
-      const list = value.playlists.map((item) => {
+    .then(value => {
+      const list = value.playlists.map(item => {
         return {
           name: item.name,
           id: item.id,
@@ -37,7 +37,7 @@ export function getPlayList(category, offset, limit = 15) {
         offset,
       },
     })
-    .then((value) => {
+    .then(value => {
       return value
     })
 }

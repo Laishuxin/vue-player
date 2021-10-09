@@ -122,10 +122,10 @@ export default {
         this.currentType.tag,
         this.currentOrder.tag,
         this.page * this.limit,
-        this.limit
+        this.limit,
       )
         .then(this._setData)
-        .catch((e) => console.log(e))
+        .catch(e => console.log(e))
     },
     onChangePage(page) {
       if (this.page != page - 1) {

@@ -12,8 +12,8 @@ export function getMvs(area, type, order, offset = 0, limit = 30) {
         limit,
       },
     })
-    .then((result) => {
-      const data = result.data.map((item) => {
+    .then(result => {
+      const data = result.data.map(item => {
         return {
           artistId: item.artistId,
           artistName: item.artistName,

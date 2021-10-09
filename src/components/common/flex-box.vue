@@ -57,7 +57,7 @@ export default {
       const end = (index + 1) * this.columnCount
       return this.list.slice(
         index * this.columnCount,
-        end < this.listLength ? end : this.listLength - 1
+        end < this.listLength ? end : this.listLength - 1,
       )
     },
   },

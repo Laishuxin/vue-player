@@ -3,7 +3,7 @@ import http from '@/api/http'
 
 export function getBanner() {
   return http.get('/banner?type=2').then(
-    (value) => value.banners
+    value => value.banners,
     // (err) => err
   )
 }
@@ -13,7 +13,7 @@ export function getRecommend(limit = 30) {
     .get('personalized', {
       params: { limit },
     })
-    .then((value) => value.result)
+    .then(value => value.result)
 }
 
 export function getNewestSongs(limit = 10) {
@@ -21,11 +21,11 @@ export function getNewestSongs(limit = 10) {
     .get('/personalized/newsong', {
       params: { limit },
     })
-    .then((value) => value.result)
+    .then(value => value.result)
 }
 
 export function getLatestMv() {
-  return http.get('/personalized/mv').then((value) => {
+  return http.get('/personalized/mv').then(value => {
     return value.result
   })
 }

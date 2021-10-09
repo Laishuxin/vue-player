@@ -12,7 +12,7 @@ export function getMusicById(id) {
         id,
       },
     })
-    .then((value) => {
+    .then(value => {
       return value.data && value.data[0]
     })
 }
