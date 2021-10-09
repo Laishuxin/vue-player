@@ -1,0 +1,136 @@
+// f-flex, d-block, ...
+@each $var in $display-items {
+  // d-flex
+  .d-#{$var} {
+    display: $var;
+  }
+}
+
+// mt-1: xxx
+// $type-alias = m, $type-name = margin
+@each $type-alias, $type-name in $spacing-types {
+  // m-auto: margin: auto
+  .#{$type-alias}-auto {
+    #{type-name}: auto;
+  }
+  .#{type-alias}x-auto {
+    #{type-name}: 0 auto;
+  }
+  .#{type-alias}y-auto {
+    #{type-name}: auto 0;
+  }
+
+  // $size-alias = 0, $size-name = 0
+  @each $size-alias, $size-name in $spacing-sizes {
+    // mx-1: xxx
+    .#{$type-alias}x-#{$size-alias} {
+      #{$type-name}-left: $size-name * $size-base;
+      #{$type-name}-right: $size-name * $size-base;
+    }
+
+    // my-1: xx
+    .#{$type-alias}y-#{$size-alias} {
+      #{$type-name}-top: $size-name * $size-base;
+      #{$type-name}-bottom: $size-name * $size-base;
+    }
+
+    // m-1: xx
+    .#{$type-alias}-#{$size-alias} {
+      #{$type-name}: $size-name * $size-base;
+    }
+
+    // mt-1: xxx
+    @each $d-alias, $d-name in $spacing-directions {
+      .#{$type-alias}#{$d-alias}-#{$size-alias} {
+        #{$type-name}-#{$d-name}: $size-name * $size-base;
+      }
+    }
+  }
+}
+
+// box-border
+@each $type, $name in $box-types {
+  .box-#{$type} {
+    box-sizing: $name;
+  }
+}
+
+// w-0, w-100, ...
+@each $key, $value in $percent-items {
+  .w-#{$key} {
+    width: $value;
+  }
+  .w-max-#{key} {
+    max-width: $value;
+  }
+  .w-min-#{key} {
+    min-width: $value;
+  }
+
+  .h-#{$key} {
+    height: $value;
+  }
+  .h-max-#{key} {
+    max-height: $value;
+  }
+  .h-min-#{key} {
+    min-height: $value;
+  }
+}
+
+.overflow-auto {
+  // overflow-y: scroll;
+  overflow: auto;
+}
+
+// z-index start
+.zindex-dropdown {
+  z-index: $zindex-dropdown;
+}
+
+.zindex-sticky {
+  z-index: $zindex-sticky;
+}
+
+.zindex-fixed {
+  z-index: $zindex-fixed;
+}
+.zindex-offcanvas {
+  z-index: $zindex-offcanvas;
+}
+.zindex-modal-backdrop {
+  z-index: $zindex-modal-backdrop;
+}
+.zindex-modal {
+  z-index: $zindex-modal;
+}
+.zindex-popover {
+  z-index: $zindex-popover;
+}
+.zindex-tooltip {
+  z-index: $zindex-tooltip;
+}
+.zindex-offcanvas {
+  z-index: $zindex-offcanvas;
+}
+// z-index end
+
+// position start
+@each $p-name in $position-items {
+  .position-#{$p-name} {
+    position: $p-name;
+  }
+}
+// position end
+
+// border start
+// border-1-primary: border: 1px solid primary-color;
+@each $color-name, $color in $colors {
+  @for $size from 0 through 1 {
+    .border-#{$size}-#{$color-name} {
+      border: #{$size}px solid $color;
+    }
+  }
+}
+
+// border end

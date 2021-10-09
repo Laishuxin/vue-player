@@ -1,0 +1,95 @@
+$size-base: 1rem;
+
+// text
+$text-size: (
+  'xs': 0.16,
+  'sm': 0.187,
+  'md': 0.213,
+  'lg': 0.24,
+  'xl': 0.267,
+  'xxl': 0.32,
+);
+
+// directions start
+$text-directions: (left, right, center);
+$common-directions: (left, right, bottom, top);
+$justify-directions: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around,
+);
+
+$align-directions: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+);
+
+$flex-directions: (column, row);
+$spacing-directions: (
+  't': top,
+  'b': bottom,
+  'l': left,
+  'r': right,
+);
+// direction end
+
+$display-items: (flex, block, inline-block);
+$wrap-items: (wrap, nowrap);
+$spacing-types: (
+  'm': margin,
+  'p': padding,
+);
+
+$spacing-sizes: (
+  '0': 0,
+  '1': 0.1,
+  '2': 0.15,
+  '3': 0.2,
+  '4': 0.25,
+  '5': 0.3,
+  '6': 0.4,
+  '7': 0.5,
+  '8': 0.6,
+);
+
+$box-types: (
+  'border': border-box,
+  'content': content-box,
+);
+
+$percent-items: (
+  '0': 0,
+  '20': 20%,
+  '25': 25%,
+  '35': 35%,
+  '45': 45%,
+  '50': 50%,
+  '65': 65%,
+  '75': 75%,
+  '100': 100%,
+);
+
+// box-shadow start
+$card-box-shadow: 0 0.013rem 0.04rem
+  var(--card-shadow-color, rgb(18 18 18 / 10%));
+
+// box-shadow end
+
+// z-index start
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-offcanvas: 1040;
+$zindex-modal-backdrop: 1050;
+$zindex-modal: 1060;
+$zindex-popover: 1070;
+$zindex-tooltip: 1080;
+// z-index end
+
+// position start
+$position-items: (absolute, relative, fixed, sticky);
+
+// position end

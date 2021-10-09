@@ -1,0 +1,40 @@
+.card-box-shadow-negative {
+  @include card-box-shadow-mixin(-1);
+}
+
+.card-box-shadow-positive {
+  @include card-box-shadow-mixin();
+}
+
+.hover-bg-decoration {
+  transition: all 0.2s;
+  &:hover {
+    background: var(--hover-bg-color, #f4f4f4);
+  }
+}
+
+.border-radius-decoration {
+  border-radius: 2%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-ellipsis-decoration {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.box-shadow {
+  box-shadow: 100px 100px black
+}

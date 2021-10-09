@@ -1,0 +1,62 @@
+:root {
+  // --primary-color: #37a1f4;
+  --primary-color: rgba(33, 150, 243, 0.15);
+  --primary-color-1: rgba(33, 150, 243, 0.15);
+  --primary-color-2: #2196f3;
+  --primary-color-3: #0d89ec;
+  --black-color: #000;
+  --white-color: #fff;
+  --text-color: #242424;
+  --text-color-1: #5b5b5b;
+  --text-color-2: #505050;
+  --text-color-3: #3a3a3a;
+  --text-color-4: #7c7c7c;
+
+  --bg-color: #ffff;
+  --bg-light-color: #f8f8f8;
+
+  --border-color: #eaecef;
+  --code-bg-color: #ecf4fa;
+  --box-shadow-color: #f0f1f2;
+  --card-shadow-color: rgba(0, 0, 0, 0.15);
+  --grey-color-1: #eeeeee;
+  --grey-color-2: #bbb;
+  --grey-color-3: #333;
+  --hover-bg-color: #f4f4f4;
+  --selection-color: var(--primary-color-3);
+  --selection-bg-color: var(--primary-color-1);
+  --mask-bg-color: #fff;
+  --yellow-color-1: #f9faa9;
+  --yellow-color-2: #fbff00;
+  --yellow-color-3: #a86922;
+  --red-color-1: #f79494;
+  --red-color-2: #ff5b5b;
+  --red-color-3: #fd3e3e;
+}
+
+$colors: (
+  'primary-light': var(--primary-color-1, #37a1f4),
+  'primary': var(--primary-color, #2196f3),
+  'primary-deep': var(--primary-color-3, #0d89ec),
+  'primary-1': var(--primary-color-1, #37a1f4),
+  'primary-2': var(--primary-color-2, #2196f3),
+  'primary-3': var(--primary-color-3, #37a1f4),
+  'black': var(--black-color, #000),
+  'white': var(--white-color, #fff),
+  'grey-1': var(--grey-color-1, #eee),
+  'grey-2': var(--grey-color-2, #bbb),
+  'grey-3': var(--grey-color-3, #333),
+  'yellow-1': var(--yellow-color-1, yellow),
+  'yellow-2': var(--yellow-color-2, yellow),
+  'yellow-3': var(--yellow-color-3, yellow),
+);
+
+@each $color-name, $color in $colors {
+  .bg-color-#{$color-name} {
+    background-color: $color;
+  }
+
+  .color-#{$color-name} {
+    color: $color;
+  }
+}

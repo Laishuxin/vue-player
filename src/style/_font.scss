@@ -1,0 +1,37 @@
+// text-sm: font-size: x rem, ...
+@each $key, $var in $text-size {
+  // text-sm
+  .text-#{$key} {
+    font-size: $var * $size-base;
+  }
+}
+
+// text-1: font-weight: 100, ...
+@for $index from 1 through 8 {
+  .text-#{$index} {
+    font-weight: $index * 100;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+// text-primary: color: xxx, ...
+@each $key, $var in $colors {
+  .text-#{$key} {
+    color: $var;
+  }
+
+  // bg-primary-light
+  .bg-#{$key} {
+    background-color: $var;
+  }
+}
+
+@each $var in $text-directions {
+  // .text-center
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
